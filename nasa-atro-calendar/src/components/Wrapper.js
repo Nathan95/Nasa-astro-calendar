@@ -3,6 +3,7 @@ import DayPickerInput from "react-day-picker/DayPickerInput";
 import "react-day-picker/lib/style.css";
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
+import {Well, PageHeader} from 'react-bootstrap';
 
 class Wrapper extends Component {
   constructor(props){
@@ -43,6 +44,7 @@ handleSubmit = (event) => {
       service_version: data.service_version,
       title: data.title,
       url: data.url
+
   }))
   .catch(e => console.log('error', e));
 }
@@ -62,14 +64,15 @@ render() {
             <DayPickerInput onDayChange={this.handleDayChange}/>
             <button className="btn btn-primary">Search!</button>
          </form>
-
            <div className="image">
-               <h4>{title}</h4>
-               <a href={hdurl}>
-                 <img src={url} alt={title} />
-               </a>
-               <p>{explanation}</p>
-               <span>{copyright}</span>
+             <PageHeader>
+                <small>{title}</small>
+              </PageHeader>
+                 <a href={hdurl}>
+                   <img src={url} alt={title} />
+                 </a>
+                 <Well bsSize="large">{explanation}</Well>
+                 <span>{copyright}</span>
            </div>
         </div>
       );
