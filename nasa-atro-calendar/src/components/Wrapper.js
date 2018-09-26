@@ -60,7 +60,10 @@ render() {
 
     return (
         <div align="middle">
-        <form onSubmit={this.handleSubmit}>
+        <PageHeader>
+           <small>Search the Nasa Astro Calendar</small>
+         </PageHeader>
+        <form className="fetch" onSubmit={this.handleSubmit}>
             <DayPickerInput onDayChange={this.handleDayChange}/>
             <button className="btn btn-primary">Search!</button>
          </form>
